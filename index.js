@@ -3,13 +3,15 @@ const divProductos = document.getElementById("divProductos");
 const PRODUCTOS = [];
 const carrito = [];
 
-//fetch para mostrar mis productos de mi json
+//fetch para mostrar mis productos del json
 function pintarCards(){
     fetch ('DDBB/DDBB.json')
     .then (res => res.json())
     .then (data => {
         
         for (let i = 0; i < data.length; i++) { 
+
+            PRODUCTOS.push(data[i]);
 
             let card = document.createElement("div");
             card.innerHTML = `
@@ -20,24 +22,34 @@ function pintarCards(){
                     <h5>${data[i].marca}</h5>
                     <p> Precio: $${data[i].precio}</p>
                     <p> cantidad: ${data[i].cantidad}</p>                        
-                    <button class = "btn btn-primary" id="btnCarro${data[i].id}" onclick = "agregarCarro(${i+1})">Agregar</button>
+                    <button class = "btn btn-primary" id="btnCarro${data[i].id}" onclick = "agregarCarro(${i})">Agregar</button>
                 </div>
             `
             divProductos.appendChild(card);
         }
         
-        PRODUCTOS.push(data);
+        
         console.log(data);
     })
 }
 console.log(PRODUCTOS);
+
 //pinto en el html 
 pintarCards();
 
+console.log(carrito);
+
 //funcion para agregar al carrito
 function agregarCarro (i) {
+    
+    Toastify({
+        text: "Agegado al carrito",        
+        duration: 3000        
+    }).showToast();
+    
     let prod = PRODUCTOS [i];
-    // let existe = false ;
+    let existe = false ;
+
     // for (let i = 0; i < carrito.length; i++) {
     //     if (carrito[i].id === prod.id){
     //         existe = true;
@@ -51,8 +63,8 @@ function agregarCarro (i) {
     //     carrito.push(prod)
     //     console.log(carrito);
     // }
-    console.log('clickeaste');
-    
+
+    console.log('clickeaste');    
     carrito.push(prod);
     console.log(carrito);
 
