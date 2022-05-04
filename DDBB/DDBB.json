@@ -1,0 +1,83 @@
+[
+    {
+        "id" : 1,
+        "nombre" : "inodoro corto",
+        "marca" : "ferrum",
+        "precio" : "8000",
+        "cantidad" : "1",
+        "img" : "img/Milena_InodoroCorto_chica.jpg"
+    },
+    {
+        "id" : 2,
+        "nombre" : "inodoro largo",
+        "marca" : "ferrum",
+        "precio" : "8500",
+        "cantidad" : "1",
+        "img" : "img/Milena_InodoroLargo_chica.jpg"
+    },
+    {
+        "id" : 3,
+        "nombre" : "deposito",
+        "marca" : "ferrum",
+        "precio" : "9000",
+        "cantidad" : "1",
+        "img" : "img/A_Deposito_Milena.jpg"
+    },
+    {
+        "id" : 4,
+        "nombre" : "bide",
+        "marca" : "ferrum",
+        "precio" : "7500",
+        "cantidad" : "1",
+        "img" : "img/A_Bide1agujero_Milena_350.jpg"
+    },
+    {
+        "id" : 5,
+        "nombre" : "lavatorio con pedestal",
+        "marca" : "ferrum",
+        "precio" : "9500",
+        "cantidad" : "1",
+        "img" : "img/A_LavatorioPedestal_Andina_350.jpg"
+    },
+    {
+        "id" : 6,
+        "nombre" : "inodoro corto",
+        "marca" : "capea",
+        "precio" : "7500",
+        "cantidad" : "1",
+        "img" : "img/capea inodoro corto.png"
+    },
+    {
+        "id" : 7,
+        "nombre" : "inodoro largo",
+        "marca" : "capea",
+        "precio" : "8000",
+        "cantidad" : "1",
+        "img" : "img/capea inodoro largo.png"
+    },
+    {
+        "id" : 8,
+        "nombre" : "deposito",
+        "marca" : "capea",
+        "precio" : "7500",
+        "cantidad" : "1",
+        "img" : "img/capea deposito.jpg"
+    },
+    {
+        "id" : 9,
+        "nombre" : "bide",
+        "marca" : "capea",
+        "precio" : "7500",
+        "cantidad" : "1",
+        "img" : "img/capea bide.png"
+    },
+    {
+        "id" : 10,
+        "nombre" : "lavatorio con pedestal",
+        "marca" : "capea",
+        "precio" : "7500",
+        "cantidad" : "1",
+        "img" : "img/capea lavatorio con pie.jpg"
+    }
+    
+]
