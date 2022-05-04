@@ -26,20 +26,19 @@ function pintarCards(){
                 </div>
             `
             divProductos.appendChild(card);
-        }
-        
+        }       
         
         console.log(data);
     })
 }
+
 console.log(PRODUCTOS);
+console.log(carrito);
 
 //pinto en el html 
 pintarCards();
 
-console.log(carrito);
-
-//funcion para agregar al carrito
+//funcion para agregar al carrito + llamar a la fc pintarlo
 function agregarCarro (i) {
     
     Toastify({
@@ -48,25 +47,66 @@ function agregarCarro (i) {
     }).showToast();
     
     let prod = PRODUCTOS [i];
-    let existe = false ;
+    let existe = false ; //variable interruptor
 
-    // for (let i = 0; i < carrito.length; i++) {
-    //     if (carrito[i].id === prod.id){
-    //         existe = true;
-    //         carrito[i].cantidad ++;
+    for (let i = 0; i < carrito.length; i++) {
+        if (carrito[i].id === prod.id){ // si el id del que clickie es igual al id de algun producto de mi carrito, quiere decir que existe
+            existe = true;              // y entonces pongo mi variable en true 
+            carrito[i].cantidad ++;     // y le sumo uno a la cantidad        
 
-    //     }
+        }
         
-    // }
-    // if (!existe){
-    //     PRODUCTOS.cantidad =1;
-    //     carrito.push(prod)
-    //     console.log(carrito);
-    // }
+    }
+    if (!existe){                       //Si no existe le pongo cantidad 1 y lo pusheo al carrito
+        PRODUCTOS.cantidad =1;
+        carrito.push(prod)        
+    }
 
+    
     console.log('clickeaste');    
-    carrito.push(prod);
     console.log(carrito);
+    pintarCarrito();
+}
 
+//Funcion pintar en el carro
+function pintarCarrito() {
+    let carro = document.getElementById('tbody');
+    carro.innerHTML=''; // lo limpio cada vez que hago click y agrego cada elemento del carrito de nuevo
 
+    for (let i = 0; i < carrito.length; i++) {
+        const element = carrito [i];
+
+        carro.innerHTML += `
+        <tr>
+            <td>${element.cantidad}</td>
+            <td>${element.nombre}</td>
+            <td>${element.marca}</td>
+            <td>${element.precio}</td>            
+            <td><button class="btn btn-danger" onclick = "btnEliminar(${i})">X</button></td>
+        </tr>
+    `
+    }
+}
+
+//funcion boton eliminar del carro
+
+function btnEliminar(i){
+    carrito.splice(i, 1);
+    let carro = document.getElementById('tbody');
+    carro.innerHTML=''; //lo limpio de nuevo para que me muestre solo lo que tengo en el carrito
+
+    for (let i = 0; i < carrito.length; i++) {
+        const element = carrito [i];
+
+        carro.innerHTML += `
+        <tr>
+            <td>${element.cantidad}</td>
+            <td>${element.nombre}</td>
+            <td>${element.marca}</td>
+            <td>${element.precio}</td>            
+            <td><button class="btn btn-danger" onclick = "btnEliminar(${i})">X</button></td>
+        </tr>
+    `
+    }
+    console.log(carrito);
 }
