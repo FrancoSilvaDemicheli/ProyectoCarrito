@@ -15,15 +15,21 @@ function pintarCards(){
 
             let card = document.createElement("div");
             card.innerHTML = `
-                <div
-                    class="col-3 col-md-6">
-                    <img src="${data[i].img}" alt="" />
-                    <h5> ${data[i].nombre}</h5>
-                    <h5>${data[i].marca}</h5>
-                    <p> Precio: $${data[i].precio}</p>
-                    <p> cantidad: ${data[i].cantidad}</p>                        
-                    <button class = "btn btn-primary" id="btnCarro${data[i].id}" onclick = "agregarCarro(${i})">Agregar</button>
+                
+                
+                <div class="card border-primary mb-6">
+                <img src="${data[i].img}" class="card-img-top" />
+                    <div class="card-body">  
+                        
+                        <h5 class="card-title"> ${data[i].nombre}</h5>
+                        <h5 class="card-title">${data[i].marca}</h5>
+                        <p class="card-text"> Precio: $${data[i].precio}</p>
+                        <p class="card-text"> cantidad: ${data[i].cantidad}</p>                        
+                        <button class = "btn btn-primary" id="btnCarro${data[i].id}" onclick = "agregarCarro(${i})">Agregar</button>
+                    </div>
                 </div>
+                
+                   
             `
             divProductos.appendChild(card);
         }       
