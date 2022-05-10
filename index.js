@@ -1,3 +1,5 @@
+const inputBuscar = document.getElementById('buscar');
+const btnBuscar = document.getElementById('btnBuscar');
 const btnVaciar = document.getElementById('vaciar');
 const divProductos = document.getElementById("divProductos");
 const PRODUCTOS = [];
@@ -10,7 +12,7 @@ function pintarCards(){
     .then (data => {
         
         for (let i = 0; i < data.length; i++) { 
-
+            
             PRODUCTOS.push(data[i]);
 
             let card = document.createElement("div");
@@ -116,3 +118,20 @@ function btnEliminar(i){
     }
     console.log(carrito);
 }
+
+localStorage.setItem('producto', 'inodoro');
+
+//Configuracion del boton para buscar
+btnBuscar.addEventListener('click', buscar);
+
+function buscar() {
+    let valor = inputBuscar.value;
+    console.log('clickeaste');
+
+    if (valor.length == 0){
+        swal ('CAMPO VACÍO')
+    }else{
+        let ENCONTRADOS = PRODUCTOS.filter ( producto => (producto.nombre.includes(valor) || producto.marca.includes(valor)))
+        console.log(ENCONTRADOS);
+    }
+};
